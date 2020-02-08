@@ -14,18 +14,24 @@ public class CharControll : MonoBehaviour
 
     Animator animator;
 
-    
-    [SerializeField, Tooltip("Acceleration while grounded.")]
-    float acceleration = 75;
+	// MUTABLE CHARACTER VARIABLES
 
     [SerializeField, Tooltip("Acceleration while grounded.")]
-    float deceleration = 70;
+    float acceleration;
+
+    [SerializeField, Tooltip("Acceleration while grounded.")]
+    float deceleration;
 
     [SerializeField, Tooltip("How high yah boy is jumping.")]
-    float jumpHeight = 5;
+    float jumpHeight;
+
+    [SerializeField, Tooltip("How big yah boy is.")]
+    Vector3 blobSize;
+
 
     const float default_jump_height = 5;
     const float frog_jump_height = 10;
+    //const Vector3 default_blob_size = gameObject.transform.localScale;
 
     int previous_face;
     bool faceLeft;
@@ -42,10 +48,16 @@ public class CharControll : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-        sprite = gameObject.GetComponent<SpriteRenderer>(); 
+        sprite = gameObject.GetComponent<SpriteRenderer>();
         animator = gameObject.GetComponent<Animator>();
 
-	//TEST	
+        // INSTANTIATE CHARACTER VARIABLES
+        acceleration = 75;
+        deceleration = 70;
+        jumpHeight = 5;
+        blobSize = gameObject.transform.localScale;
+
+	//TEST
 	inventory = gameObject.GetComponent<Inventory>();
     }
 
@@ -62,6 +74,8 @@ public class CharControll : MonoBehaviour
             switch (array[i]) {
                 case 1:
                     //Dosomething
+                    Debug.Log("Has Coin");
+
                     break;
                 case 2:
                     //Frog
@@ -80,6 +94,8 @@ public class CharControll : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        Debug.Log("Size: " + blobSize.x + ", " + blobSize.y);
+
         CheckInventory();
         float moveInput = Input.GetAxis("Horizontal");
         animator.SetFloat("Speed", Mathf.Abs(moveInput));
@@ -88,8 +104,8 @@ public class CharControll : MonoBehaviour
         } else if (moveInput < 0) {
             sprite.flipX = false;
         }
-        
-        //Lets do some jumping 
+
+        //Lets do some jumping
         if (moveInput != 0)
         {
             velocity.x = Mathf.MoveTowards(velocity.x, speed * moveInput, acceleration * Time.deltaTime);
@@ -97,7 +113,7 @@ public class CharControll : MonoBehaviour
         else
         {
             velocity.x = Mathf.MoveTowards(velocity.x, 0, deceleration * Time.deltaTime);
-        }   
+        }
 
         transform.Translate(velocity * Time.deltaTime);
         //We need a slight delay to line up with the animatino
@@ -118,7 +134,7 @@ public class CharControll : MonoBehaviour
                 jumpTime = jumpStagger;
             }
         }
-    }  
+    }
     void OnCollisionEnter2D(Collision2D collision){
         Debug.Log(collision.gameObject.name);
         if(collision.gameObject.name == "Floor" && !isJumping)
@@ -127,6 +143,6 @@ public class CharControll : MonoBehaviour
             isGrounded = true;
         }
     }
-   
+
 
 }
