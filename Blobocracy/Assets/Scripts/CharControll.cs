@@ -57,4 +57,6 @@ public class CharControll : MonoBehaviour
             isGrounded = true;
         }
     }
+
+
 }
