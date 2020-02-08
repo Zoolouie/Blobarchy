@@ -33,11 +33,6 @@ public class CharControll : MonoBehaviour
         //Lets do some jumping 
         velocity.y = 0;
 
-        if (Input.GetButtonDown("Jump"))
-        {
-            velocity.y = Mathf.Sqrt(2 * jumpHeight * Mathf.Abs(Physics2D.gravity.y));
-        }
-
         if (moveInput != 0)
         {
             velocity.x = Mathf.MoveTowards(velocity.x, speed * moveInput, acceleration * Time.deltaTime);
@@ -45,11 +40,18 @@ public class CharControll : MonoBehaviour
         else
         {
             velocity.x = Mathf.MoveTowards(velocity.x, 0, deceleration * Time.deltaTime);
-        }
-
-        velocity.y += Physics2D.gravity.y * Time.deltaTime;
-        
+        }   
 
         transform.Translate(velocity * Time.deltaTime);
+                if (Input.GetButtonDown("Jump"))
+        {
+            Debug.Log("tset");
+            body.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
+        }
+    }
+
+    void FixedUpdated() {
+        
+
     }
 }
