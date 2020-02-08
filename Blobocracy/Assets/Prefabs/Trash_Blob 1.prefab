@@ -12,8 +12,12 @@ GameObject:
   - component: {fileID: 1945528178891579171}
   - component: {fileID: 1945528178891579170}
   - component: {fileID: 1945528178891579174}
+<<<<<<< HEAD
   - component: {fileID: 440079000}
   - component: {fileID: 440079004}
+=======
+  - component: {fileID: 2160391317942447741}
+>>>>>>> 205fc5ff16be257c9640abcb28f5500a6ca630aa
   m_Layer: 0
   m_Name: Trash_Blob 1
   m_TagString: Untagged
@@ -147,6 +151,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1945528178891579169}
   m_Enabled: 1
+<<<<<<< HEAD
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 8c8c0bcc201e2fe468b05073e2ab2281, type: 2}
   m_CullingMode: 0
@@ -157,3 +162,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+=======
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e67a62348b4caf4f88407b0f40451aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 9
+  acceleration: 75
+  deceleration: 70
+  jumpHeight: 10
+--- !u!114 &2160391317942447741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945528178891579169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6394f94f0f76115a74f2544dd43052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> 205fc5ff16be257c9640abcb28f5500a6ca630aa

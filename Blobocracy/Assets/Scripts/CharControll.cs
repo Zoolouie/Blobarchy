@@ -32,6 +32,8 @@ public class CharControll : MonoBehaviour
 
     float jumpTime = jumpStagger;
     bool isJumping = false;
+    //TEST
+    Inventory inventory;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +41,9 @@ public class CharControll : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         sprite = gameObject.GetComponent<SpriteRenderer>(); 
         animator = gameObject.GetComponent<Animator>();
+
+	//TEST	
+	inventory = gameObject.GetComponent<Inventory>();
     }
 
     // Update is called once per frame
@@ -90,5 +95,6 @@ public class CharControll : MonoBehaviour
             isGrounded = true;
         }
     }
+   
 
 }
