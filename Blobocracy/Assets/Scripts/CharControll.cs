@@ -41,6 +41,7 @@ public class CharControll : MonoBehaviour
     const float turtle_speed = 3;
     const float default_blob_scale = 1.152608F;
     const float blob_scale = 3;
+    const float thrust_coefficient = 10;
 
     int previous_face;
     bool faceLeft;
@@ -50,6 +51,8 @@ public class CharControll : MonoBehaviour
 
     float jumpTime = jumpStagger;
     bool isJumping = false;
+    bool isFalling = false;
+    bool hasBird = false;
     //TEST
     Inventory inventory;
 
@@ -74,6 +77,7 @@ public class CharControll : MonoBehaviour
         jumpHeight = default_jump_height;
         gameObject.transform.localScale = new Vector3(default_blob_scale, default_blob_scale, default_blob_scale);
         speed = default_speed;
+        hasBird = false;
     }
     void CheckInventory() {
         SetDefault();
@@ -85,21 +89,28 @@ public class CharControll : MonoBehaviour
                 case 1:
                     //Dosomething
                     // Debug.Log("Has Coin");
+                    image.GetComponent<CurrentAbsorbed>().SetCurrentPowerUp(Consumables.Coin);
                     gameObject.transform.localScale = new Vector3(blob_scale, blob_scale, blob_scale);
                     break;
                 case 2:
                     //Frog
                     // Debug.Log("Has Frog");
                     jumpHeight = frog_jump_height;
-                    // image.GetComponent<CurrentAbsorbed>().SetCurrentPowerUp(Consumables.Frog);
+                    image.GetComponent<CurrentAbsorbed>().SetCurrentPowerUp(Consumables.Frog);
                     break;
                 case 3:
                     //Trash - do nothing
                     // Debug.Log("Has Trash");
+                    image.GetComponent<CurrentAbsorbed>().SetCurrentPowerUp(Consumables.Trash);
                     break;
                 case 4:
                     //Turtle - go slower and make tougher?
+                    image.GetComponent<CurrentAbsorbed>().SetCurrentPowerUp(Consumables.Turtle);
                     speed = turtle_speed;
+                    break;
+                case 5:
+                    image.GetComponent<CurrentAbsorbed>().SetCurrentPowerUp(Consumables.Bird);
+                    hasBird = true;
                     break;
                 default:
                     break;
@@ -113,6 +124,13 @@ public class CharControll : MonoBehaviour
     {
 
         CheckInventory();
+
+        if (body.velocity.y < 0) {
+            isFalling = true;
+        } else {
+            isFalling = false;
+        }
+
         float moveInput = Input.GetAxis("Horizontal");
         animator.SetFloat("Speed", Mathf.Abs(moveInput));
         if (moveInput > 0) {
@@ -138,6 +156,11 @@ public class CharControll : MonoBehaviour
             animator.SetBool("Jump", true);
             isJumping = true;
             isGrounded = false;
+        }
+
+        if (Input.GetButton("Jump") && isFalling && hasBird){
+            //if have bird, are falling, and holding jump, add upward force to glide:
+            body.AddForce(transform.up * thrust_coefficient);
         }
 
 
