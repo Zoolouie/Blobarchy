@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 /*
 DESCRIPTION:
@@ -38,14 +37,11 @@ public class CharControll : MonoBehaviour
 
     const float default_jump_height = 5;
     const float frog_jump_height = 10;
-    const float turtle_jump_height = 2;
     const float default_speed = 9;
     const float turtle_speed = 3;
     const float default_blob_scale = 1.152608F;
-    const float blob_scale = 3;
+    const float blob_scale = 2;
     const float thrust_coefficient = 10;
-
-    const float threshold = -20;
 
     int previous_face;
     bool faceLeft;
@@ -111,7 +107,6 @@ public class CharControll : MonoBehaviour
                     //Turtle - go slower and make tougher?
                     image.GetComponent<CurrentAbsorbed>().SetCurrentPowerUp(Consumables.Turtle);
                     speed = turtle_speed;
-                    jumpHeight = turtle_jump_height;
                     break;
                 case 5:
                     image.GetComponent<CurrentAbsorbed>().SetCurrentPowerUp(Consumables.Bird);
@@ -129,12 +124,6 @@ public class CharControll : MonoBehaviour
     {
 
         CheckInventory();
-
-        if (transform.position.y < threshold) {
-            Scene scene = SceneManager.GetActiveScene(); 
-            SceneManager.LoadScene(scene.name);
-            return;
-        }
 
         if (body.velocity.y < 0) {
             isFalling = true;
@@ -188,7 +177,7 @@ public class CharControll : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision){
         //Debug.Log(collision.gameObject.name);
-        if(collision.gameObject.name == "Floor" && !isJumping)
+        if(collision.gameObject.tag == "Floor" && !isJumping)
         {
             animator.SetBool("Jump", false);
             isGrounded = true;
