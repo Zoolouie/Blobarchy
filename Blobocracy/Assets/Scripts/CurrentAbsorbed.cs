@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+  DESCRIPTION:
+    Displays currently consumed items in UI
+  USAGE:
+    ?????
+*/
+
     public enum Consumables {
         None,
         Coin,

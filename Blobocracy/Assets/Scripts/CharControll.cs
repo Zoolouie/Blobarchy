@@ -8,7 +8,6 @@ DESCRIPTION:
   Controls characters movement and behavior
 USAGE:
   Attach to character
-
 */
 public class CharControll : MonoBehaviour
 {
@@ -39,7 +38,7 @@ public class CharControll : MonoBehaviour
     const float default_jump_height = 5;
     const float frog_jump_height = 10;
     const float default_speed = 9;
-    const float turtle_speed = 5;
+    const float turtle_speed = 3;
     const float default_blob_scale = 1.152608F;
     const float blob_scale = 3;
 
@@ -74,6 +73,7 @@ public class CharControll : MonoBehaviour
     void SetDefault() {
         jumpHeight = default_jump_height;
         gameObject.transform.localScale = new Vector3(default_blob_scale, default_blob_scale, default_blob_scale);
+        speed = default_speed;
     }
     void CheckInventory() {
         SetDefault();
@@ -91,7 +91,7 @@ public class CharControll : MonoBehaviour
                     //Frog
                     // Debug.Log("Has Frog");
                     jumpHeight = frog_jump_height;
-                    image.GetComponent<CurrentAbsorbed>().SetCurrentPowerUp(Consumables.Frog);
+                    // image.GetComponent<CurrentAbsorbed>().SetCurrentPowerUp(Consumables.Frog);
                     break;
                 case 3:
                     //Trash - do nothing
