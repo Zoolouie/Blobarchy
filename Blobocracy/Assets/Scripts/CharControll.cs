@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharControll : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class CharControll : MonoBehaviour
 
     Animator animator;
 
-	// MUTABLE CHARACTER VARIABLES
+    public Image image;
 
     [SerializeField, Tooltip("Acceleration while grounded.")]
     float acceleration;
@@ -25,13 +26,14 @@ public class CharControll : MonoBehaviour
     [SerializeField, Tooltip("How high yah boy is jumping.")]
     float jumpHeight;
 
-    [SerializeField, Tooltip("How big yah boy is.")]
-    Vector3 blobSize;
+    // [SerializeField, Tooltip("How big yah boy is.")]
+    // Vector3 blobScale;
 
 
     const float default_jump_height = 5;
     const float frog_jump_height = 10;
-    //const Vector3 default_blob_size = gameObject.transform.localScale;
+    const float default_blob_scale = 1.152608F;
+    const float blob_scale = 3;
 
     int previous_face;
     bool faceLeft;
@@ -55,10 +57,10 @@ public class CharControll : MonoBehaviour
         acceleration = 75;
         deceleration = 70;
         jumpHeight = 5;
-        blobSize = gameObject.transform.localScale;
+        // blobScale = default_blob_scale;
 
-	//TEST
-	inventory = gameObject.GetComponent<Inventory>();
+
+        inventory = gameObject.GetComponent<Inventory>();
     }
 
 
@@ -75,12 +77,14 @@ public class CharControll : MonoBehaviour
                 case 1:
                     //Dosomething
                     Debug.Log("Has Coin");
+                    // blobScale = 3;
 
                     break;
                 case 2:
                     //Frog
                     Debug.Log("Has Frog");
                     jumpHeight = frog_jump_height;
+                    image.GetComponent<CurrentAbsorbed>().SetCurrentPowerUp(Consumables.Frog);
                     break;
                 case 3:
                     break;
@@ -94,7 +98,6 @@ public class CharControll : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log("Size: " + blobSize.x + ", " + blobSize.y);
 
         CheckInventory();
         float moveInput = Input.GetAxis("Horizontal");

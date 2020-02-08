@@ -57,9 +57,10 @@ public class CollectableBehavior : MonoBehaviour
 	
     }
 
+/*
     void OnTriggerEnter2D(Collider2D other)
     {
-    	if (other.gameObject.CompareTag("Collectables"))
+    	if (other.gameObject.CompareTag("Coin"))
         {
         	scaleChange = new Vector3(
             other.gameObject.transform.localScale.x, 
@@ -71,6 +72,6 @@ public class CollectableBehavior : MonoBehaviour
                     gameObject.transform.localScale += scaleChange;
                 }
     }
-    
+ */   
    
 }
