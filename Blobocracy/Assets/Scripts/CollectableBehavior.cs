@@ -34,23 +34,23 @@ public class CollectableBehavior : MonoBehaviour
                     other.gameObject.transform.localScale.x, 
                     other.gameObject.transform.localScale.y, 
                     0);
-
-                    other.gameObject.SetActive(false);
                     
                     gameObject.transform.localScale += scaleChange;
                 }
     }
     */
     Inventory inventory;
+	ItemRender stomach;
     
     void Start()
     {
 		inventory = gameObject.GetComponent<Inventory>();
+		stomach = gameObject.GetComponent<ItemRender>();
     }
 
     void OnTriggerStay2D(Collider2D other)
     {
-        //Debug.Log("Collision still happening");
+        Debug.Log("Collision still happening");
 	
 		// Get item name from object tag:
 		string itemName = other.tag;
@@ -79,8 +79,14 @@ public class CollectableBehavior : MonoBehaviour
 				break;		
 		}
 		
+
+		
 		//Add to inventory:		
 		inventory.SetInventory(item);
+
+		//render it in its stomach
+		//Debug.Log("It is rendering stom");
+		stomach.renderStomach();
 		
 		//Destroy item:
 		Destroy(other.gameObject);

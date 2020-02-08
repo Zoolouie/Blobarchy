@@ -76,6 +76,7 @@ public class CharControll : MonoBehaviour
             isGrounded = false;
         }
 
+
         //Check if the startup animation is completed, then apply force
         if (isJumping) {
             if (jumpTime > 0) {
@@ -86,7 +87,7 @@ public class CharControll : MonoBehaviour
                 jumpTime = jumpStagger;
             }
         }
-    }  
+    } 
     void OnCollisionEnter2D(Collision2D collision){
         Debug.Log(collision.gameObject.name);
         if(collision.gameObject.name == "Floor" && !isJumping)
@@ -95,6 +96,6 @@ public class CharControll : MonoBehaviour
             isGrounded = true;
         }
     }
-   
 
+    
 }
