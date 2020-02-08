@@ -7,6 +7,7 @@ public class CharControll : MonoBehaviour
     [SerializeField, Tooltip("Max speed, in units per second, that the character moves.")]
     float speed = 9;
     protected Rigidbody2D body;
+    protected SpriteRenderer sprite;
     protected Vector2 velocity;
 
     bool isGrounded;
@@ -21,18 +22,29 @@ public class CharControll : MonoBehaviour
     [SerializeField, Tooltip("How high yah boy is jumping.")]
     float jumpHeight = 3;
 
+    int previous_face;
+    bool faceLeft;
+    bool faceRight;
+
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        sprite = gameObject.GetComponent<SpriteRenderer>(); 
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         float moveInput = Input.GetAxis("Horizontal");
-        //Lets do some jumping 
 
+        if (moveInput > 0) {
+            sprite.flipX = true;
+        } else if (moveInput < 0) {
+            sprite.flipX = false;
+        }
+        
+        //Lets do some jumping 
         if (moveInput != 0)
         {
             velocity.x = Mathf.MoveTowards(velocity.x, speed * moveInput, acceleration * Time.deltaTime);
@@ -57,6 +69,5 @@ public class CharControll : MonoBehaviour
             isGrounded = true;
         }
     }
-
 
 }
