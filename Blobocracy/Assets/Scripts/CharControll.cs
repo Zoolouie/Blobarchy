@@ -38,7 +38,7 @@ public class CharControll : MonoBehaviour
 
     const float default_jump_height = 5;
     const float frog_jump_height = 10;
-    const float turtle_jump_height = 2;
+    const float turtle_jump_height = 3;
     const float default_speed = 9;
     const float turtle_speed = 3;
     const float default_blob_scale = 1.152608F;
