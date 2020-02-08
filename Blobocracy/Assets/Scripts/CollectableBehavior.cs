@@ -2,17 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+DESCRIPTION:
+	Handles collisions between collectables and character
+USAGE:
+	Attach to character
+*/
+
 public class CollectableBehavior : MonoBehaviour
-{   
-	   
-	private Vector3 scaleChange;// = new Vector3(2.0f, 2.0f, 0.0f);
-    Rigidbody2D rb2d;
+{
+
+	// private Vector3 scaleChange;// = new Vector3(2.0f, 2.0f, 0.0f);
+    // Rigidbody2D rb2d;
     // Start is called before the first frame update
-   
+
 
     Inventory inventory;
 	ItemRender stomach;
-    
+
     void Start()
     {
 		inventory = gameObject.GetComponent<Inventory>();
@@ -22,12 +29,12 @@ public class CollectableBehavior : MonoBehaviour
     void OnTriggerStay2D(Collider2D other)
     {
         Debug.Log("Collision still happening");
-	
+
 		// Get item name from object tag:
 		string itemName = other.tag;
 		// Add corresponding item to inventory:
 		int item = 0;
-	
+
 		switch(itemName)
 		{
 		    case "Coin":
@@ -47,23 +54,23 @@ public class CollectableBehavior : MonoBehaviour
 				break;
 			default:
 				Debug.Log("Unknown item");
-				break;		
+				break;
 		}
-		
 
-		
-		//Add to inventory:		
+
+
+		//Add to inventory:
 		inventory.SetInventory(item);
 
 		//render it in its stomach
 		//Debug.Log("It is rendering stom");
 		stomach.renderStomach();
-		
+
 		//Destroy item:
 		Destroy(other.gameObject);
-	
+
     }
 
-    
-   
+
+
 }

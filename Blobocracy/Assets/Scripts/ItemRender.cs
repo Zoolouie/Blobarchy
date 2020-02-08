@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+  DESCRIPTION:
+    Renders items in stomach
+  USAGE:
+    Attach to character
+*/
+
 public class ItemRender : MonoBehaviour
 {
     Inventory inventory;
@@ -69,5 +76,5 @@ public class ItemRender : MonoBehaviour
         }
         
     }
-    
+
 }
