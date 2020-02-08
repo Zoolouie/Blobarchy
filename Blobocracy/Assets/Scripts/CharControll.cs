@@ -16,6 +16,9 @@ public class CharControll : MonoBehaviour
     [SerializeField, Tooltip("Acceleration while grounded.")]
     float deceleration = 70;
 
+    [SerializeField, Tooltip("How high yah boy is jumping.")]
+    float jumpHeight = 3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,14 @@ public class CharControll : MonoBehaviour
     {
         float moveInput = Input.GetAxis("Horizontal");
 
+        //Lets do some jumping 
+        velocity.y = 0;
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            velocity.y = Mathf.Sqrt(2 * jumpHeight * Mathf.Abs(Physics2D.gravity.y));
+        }
+
         if (moveInput != 0)
         {
             velocity.x = Mathf.MoveTowards(velocity.x, speed * moveInput, acceleration * Time.deltaTime);
@@ -35,6 +46,9 @@ public class CharControll : MonoBehaviour
         {
             velocity.x = Mathf.MoveTowards(velocity.x, 0, deceleration * Time.deltaTime);
         }
+
+        velocity.y += Physics2D.gravity.y * Time.deltaTime;
+        
 
         transform.Translate(velocity * Time.deltaTime);
     }
