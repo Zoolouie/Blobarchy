@@ -79,7 +79,11 @@ public class CollectableBehavior : MonoBehaviour
 				break;		
 		}
 		
+		//Add to inventory:		
 		inventory.SetInventory(item);
+		
+		//Destroy item:
+		Destroy(other.gameObject);
 	
     }
    

@@ -8,6 +8,7 @@ TagManager:
   - Frog
   - Turtle
   - Collectables
+  - Coin
   layers:
   - Default
   - TransparentFX

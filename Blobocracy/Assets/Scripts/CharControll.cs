@@ -76,8 +76,5 @@ public class CharControll : MonoBehaviour
         }
     }
    
-	void Update(){
-		// Debug.Log("Inventory: " + inventory.GetInventory()[0]);
-	}
 
 }
