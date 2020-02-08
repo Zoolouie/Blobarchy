@@ -9,6 +9,7 @@ TagManager:
   - Turtle
   - Collectables
   - Coin
+  - Bird
   layers:
   - Default
   - TransparentFX

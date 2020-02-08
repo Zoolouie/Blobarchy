@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Image))]
-public class CurrentAbsorbed : MonoBehaviour
-{
-    enum Consumables {
+    public enum Consumables {
         None,
         Frog,
         Turtle,
         Bird
     }
+
+[RequireComponent(typeof(Image))]
+public class CurrentAbsorbed : MonoBehaviour
+{
+
     // Start is called before the first frame update
     Image currentImage;
     public Sprite FROG, TURTLE, BIRD;
@@ -22,7 +24,7 @@ public class CurrentAbsorbed : MonoBehaviour
     }
 
     //Set the powerup display by itemType
-    void SetCurrentPowerUp(Consumables itemType) {
+    public void SetCurrentPowerUp(Consumables itemType) {
         currentImage.enabled = true;
         switch(itemType) {
             case Consumables.Frog:

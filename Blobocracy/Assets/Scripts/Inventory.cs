@@ -23,7 +23,6 @@ public class Inventory : MonoBehaviour
     public void SetInventory(int item){
 		// Set list at idx to item:	
 		inventory[idx] = item;
-		Debug.Log("Added item " + item);
 	
 		// Update idx:
 		// if idx at end, set idx to 0:
