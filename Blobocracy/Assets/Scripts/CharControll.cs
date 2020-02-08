@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+DESCRIPTION:
+  Controls characters movement and behavior
+USAGE:
+  Attach to character
+
+*/
 public class CharControll : MonoBehaviour
 {
     [SerializeField, Tooltip("Max speed, in units per second, that the character moves.")]
-    float speed = 9;
     protected Rigidbody2D body;
     protected SpriteRenderer sprite;
     protected Vector2 velocity;
@@ -26,9 +32,14 @@ public class CharControll : MonoBehaviour
     [SerializeField, Tooltip("How high yah boy is jumping.")]
     float jumpHeight;
 
+    [SerializeField, Tooltip("How fast yah boy is moving.")]
+    float speed;
+
 
     const float default_jump_height = 5;
     const float frog_jump_height = 10;
+    const float default_speed = 9;
+    const float turtle_speed = 5;
     const float default_blob_scale = 1.152608F;
     const float blob_scale = 3;
 
@@ -36,7 +47,7 @@ public class CharControll : MonoBehaviour
     bool faceLeft;
     bool faceRight;
 
-    const float jumpStagger = .6f;
+    const float jumpStagger = .6F;
 
     float jumpTime = jumpStagger;
     bool isJumping = false;
@@ -53,7 +64,8 @@ public class CharControll : MonoBehaviour
         // INSTANTIATE CHARACTER VARIABLES
         acceleration = 75;
         deceleration = 70;
-        jumpHeight = 5;
+        jumpHeight = default_jump_height;
+        speed = default_speed;
 
         inventory = gameObject.GetComponent<Inventory>();
     }
@@ -84,6 +96,10 @@ public class CharControll : MonoBehaviour
                 case 3:
                     //Trash - do nothing
                     // Debug.Log("Has Trash");
+                    break;
+                case 4:
+                    //Turtle - go slower and make tougher?
+                    speed = turtle_speed;
                     break;
                 default:
                     break;

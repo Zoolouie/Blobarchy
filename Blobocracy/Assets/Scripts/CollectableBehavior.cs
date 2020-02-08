@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+DESCRIPTION:
+	Handles collisions between collectables and character
+USAGE:
+	Attach to character
+*/
+
 public class CollectableBehavior : MonoBehaviour
 {
 

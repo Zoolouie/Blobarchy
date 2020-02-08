@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+  DESCRIPTION:
+    Inventory of collected objects
+  USAGE:
+    Attach to character
+*/
+
 public class Inventory : MonoBehaviour
 {
 
@@ -15,15 +22,15 @@ public class Inventory : MonoBehaviour
 		inventory = new int[inventorySize];
 		idx = 0;
     }
-    
+
     void Update(){
 		//Debug.Log("Inventory: " + inventory[0]);
     }
 
     public void SetInventory(int item){
-		// Set list at idx to item:	
+		// Set list at idx to item:
 		inventory[idx] = item;
-	
+
 		// Update idx:
 		// if idx at end, set idx to 0:
 		if (idx >= inventory.Length - 1){
@@ -33,7 +40,7 @@ public class Inventory : MonoBehaviour
 		    idx ++;
 		}
     }
-    
+
     public int[] GetInventory(){
 		return inventory;
     }

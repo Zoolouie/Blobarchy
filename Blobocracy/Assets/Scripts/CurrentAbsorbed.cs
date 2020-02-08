@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
     public enum Consumables {
         None,
+        Coin,
         Frog,
+        Trash,
         Turtle,
         Bird
     }
@@ -16,7 +18,7 @@ public class CurrentAbsorbed : MonoBehaviour
 
     // Start is called before the first frame update
     Image currentImage;
-    public Sprite FROG, TURTLE, BIRD;
+    public Sprite COIN, FROG, TRASH, TURTLE, BIRD;
     void Start()
     {
         currentImage = gameObject.GetComponent<Image>();
@@ -27,14 +29,20 @@ public class CurrentAbsorbed : MonoBehaviour
     public void SetCurrentPowerUp(Consumables itemType) {
         currentImage.enabled = true;
         switch(itemType) {
+            case Consumables.Coin:
+                currentImage.sprite = COIN;
+                break;
             case Consumables.Frog:
                 currentImage.sprite = FROG;
                 break;
-            case Consumables.Bird:
-                currentImage.sprite = BIRD;
+            case Consumables.Trash:
+                currentImage.sprite = TRASH;
                 break;
             case Consumables.Turtle:
                 currentImage.sprite = TURTLE;
+                break;
+            case Consumables.Bird:
+                currentImage.sprite = BIRD;
                 break;
             default:
                 currentImage.enabled = false;

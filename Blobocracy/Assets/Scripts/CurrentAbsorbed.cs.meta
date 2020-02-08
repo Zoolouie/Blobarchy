@@ -3,7 +3,12 @@ guid: 8418509a6e8d0b24a91f2008076b7dc6
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - COIN: {fileID: 21300000, guid: 85fdf4a591bc7cc4d83b4556faefe3f8, type: 3}
+  - FROG: {fileID: 21300000, guid: 40e49a312e120db46bf47422411a4fd2, type: 3}
+  - TRASH: {fileID: 21300000, guid: 147e0874482d525ae98d5aaeddfbdcf5, type: 3}
+  - TURTLE: {fileID: 21300000, guid: 879425f3970614450bded293cb128294, type: 3}
+  - BIRD: {fileID: 21300000, guid: a8ad3ad5f902d900fa388c7b1d53d409, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
