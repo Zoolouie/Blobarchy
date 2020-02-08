@@ -63,6 +63,7 @@ public class CharControll : MonoBehaviour
         }   
 
         transform.Translate(velocity * Time.deltaTime);
+        //We need a slight delay to line up with the animatino
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             animator.SetBool("Jump", true);
@@ -70,6 +71,7 @@ public class CharControll : MonoBehaviour
             isGrounded = false;
         }
 
+        //Check if the startup animation is completed, then apply force
         if (isJumping) {
             if (jumpTime > 0) {
                 jumpTime -= Time.deltaTime;
@@ -81,6 +83,7 @@ public class CharControll : MonoBehaviour
         }
     }  
     void OnCollisionEnter2D(Collision2D collision){
+        Debug.Log(collision.gameObject.name);
         if(collision.gameObject.name == "Floor" && !isJumping)
         {
             animator.SetBool("Jump", false);
