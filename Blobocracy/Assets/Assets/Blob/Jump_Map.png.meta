@@ -1,16 +1,22 @@
 fileFormatVersion: 2
-guid: f1d33dc12fff10a40b36ecaae981b522
+guid: e24e5a63f873e704f8afaf823776a822
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8845083792454905052
-    second: Sprite_Map_Idel_0
+      213: -2796742721110711881
+    second: Jump_Map_0
   - first:
-      213: 4819439798609629460
-    second: Sprite_Map_Idel_1
+      213: -1698972892166222257
+    second: Jump_Map_1
   - first:
-      213: -1632600763985997916
-    second: Sprite_Map_Idel_2
+      213: -6233109675186640808
+    second: Jump_Map_2
+  - first:
+      213: 4717866446214061202
+    second: Jump_Map_3
+  - first:
+      213: 6886420376652248769
+    second: Jump_Map_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -95,64 +101,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite_Map_Idel_0
+      name: Jump_Map_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 4
+        x: 3
+        y: 3
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 423192e6723ff3580800000000000000
-      internalID: -8845083792454905052
+      spriteID: 7b1690c1059ff29d0800000000000000
+      internalID: -2796742721110711881
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Map_Idel_1
+      name: Jump_Map_1
       rect:
         serializedVersion: 2
-        x: 20
-        y: 4
+        x: 22
+        y: 3
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 411d18c56f612e240800000000000000
-      internalID: 4819439798609629460
+      spriteID: f4e0a67f7290c68e0800000000000000
+      internalID: -1698972892166222257
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Map_Idel_2
+      name: Jump_Map_2
       rect:
         serializedVersion: 2
-        x: 38
-        y: 4
+        x: 41
+        y: 3
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4af459a4146d759e0800000000000000
-      internalID: -1632600763985997916
+      spriteID: 858237c56cb8f79a0800000000000000
+      internalID: -6233109675186640808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Map_3
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 3
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29cd258598a397140800000000000000
+      internalID: 4717866446214061202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Map_4
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 3
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c67e54c8da719f50800000000000000
+      internalID: 6886420376652248769
       vertices: []
       indices: 
       edges: []

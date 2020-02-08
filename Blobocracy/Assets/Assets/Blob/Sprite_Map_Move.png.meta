@@ -1,16 +1,28 @@
 fileFormatVersion: 2
-guid: f1d33dc12fff10a40b36ecaae981b522
+guid: 72de1f7c9fff3d841933d6be452bb300
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8845083792454905052
-    second: Sprite_Map_Idel_0
+      213: -3995084650221385055
+    second: Sprite_Map_Move_0
   - first:
-      213: 4819439798609629460
-    second: Sprite_Map_Idel_1
+      213: -1521324498867039842
+    second: Sprite_Map_Move_1
   - first:
-      213: -1632600763985997916
-    second: Sprite_Map_Idel_2
+      213: 4114556015197931150
+    second: Sprite_Map_Move_2
+  - first:
+      213: -3651012855349941129
+    second: Sprite_Map_Move_3
+  - first:
+      213: 2244825408884660311
+    second: Sprite_Map_Move_0
+  - first:
+      213: 9007229579500978638
+    second: Sprite_Map_Move_1
+  - first:
+      213: -38032673843029453
+    second: Sprite_Map_Move_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -95,32 +107,32 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite_Map_Idel_0
+      name: Sprite_Map_Move_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 4
+        x: 5
+        y: 2
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5581395, y: 0.50000006}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 423192e6723ff3580800000000000000
-      internalID: -8845083792454905052
+      spriteID: 7585757d0d8372f10800000000000000
+      internalID: 2244825408884660311
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Map_Idel_1
+      name: Sprite_Map_Move_1
       rect:
         serializedVersion: 2
-        x: 20
-        y: 4
+        x: 24
+        y: 2
         width: 16
         height: 16
       alignment: 0
@@ -130,18 +142,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 411d18c56f612e240800000000000000
-      internalID: 4819439798609629460
+      spriteID: ec10c88849b100d70800000000000000
+      internalID: 9007229579500978638
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Map_Idel_2
+      name: Sprite_Map_Move_2
       rect:
         serializedVersion: 2
-        x: 38
-        y: 4
+        x: 43
+        y: 2
         width: 16
         height: 16
       alignment: 0
@@ -151,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4af459a4146d759e0800000000000000
-      internalID: -1632600763985997916
+      spriteID: 33a5ab11c71e87ff0800000000000000
+      internalID: -38032673843029453
       vertices: []
       indices: 
       edges: []

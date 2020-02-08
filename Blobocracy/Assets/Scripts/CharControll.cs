@@ -12,6 +12,8 @@ public class CharControll : MonoBehaviour
 
     bool isGrounded;
 
+    Animator animator;
+
     
     [SerializeField, Tooltip("Acceleration while grounded.")]
     float acceleration = 75;
@@ -26,18 +28,24 @@ public class CharControll : MonoBehaviour
     bool faceLeft;
     bool faceRight;
 
+    const float jumpStagger = .6f;
+
+    float jumpTime = jumpStagger;
+    bool isJumping = false;
+
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         sprite = gameObject.GetComponent<SpriteRenderer>(); 
+        animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         float moveInput = Input.GetAxis("Horizontal");
-
+        animator.SetFloat("Speed", Mathf.Abs(moveInput));
         if (moveInput > 0) {
             sprite.flipX = true;
         } else if (moveInput < 0) {
@@ -57,15 +65,25 @@ public class CharControll : MonoBehaviour
         transform.Translate(velocity * Time.deltaTime);
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            body.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
+            animator.SetBool("Jump", true);
+            isJumping = true;
             isGrounded = false;
+        }
+
+        if (isJumping) {
+            if (jumpTime > 0) {
+                jumpTime -= Time.deltaTime;
+            } else {
+                isJumping = false;
+                body.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
+                jumpTime = jumpStagger;
+            }
         }
     }  
     void OnCollisionEnter2D(Collision2D collision){
-        Debug.Log("Test");
-        Debug.Log(collision.gameObject.name);
-        if(collision.gameObject.name == "Floor")
+        if(collision.gameObject.name == "Floor" && !isJumping)
         {
+            animator.SetBool("Jump", false);
             isGrounded = true;
         }
     }
