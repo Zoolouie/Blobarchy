@@ -4,43 +4,13 @@ using UnityEngine;
 
 public class CollectableBehavior : MonoBehaviour
 {   
-	/*    
+	   
 	private Vector3 scaleChange;// = new Vector3(2.0f, 2.0f, 0.0f);
-    void OnTriggerEnter2D(Collider2D other)
-    {
-    // Rigidbody2D rb2d;
+    Rigidbody2D rb2d;
     // Start is called before the first frame update
    
-    /*
-    void OnCollisionEnter2D(Collision2D collisionInfo)
-    {
-	Debug.Log("Collision initiated: " + gameObject.name + " and " + collisionInfo.collider.name);
-	print("There are " + collisionInfo.contacts.Length + " point(s) of contacts");
-    	print("Their relative velocity is " + collisionInfo.relativeVelocity);
-    }
 
-    void OnCollisionStay2D(Collision2D collisionInfo)
-    {
-	print(gameObject.name + " and " + collisionInfo.collider.name + " are still colliding");
-    }
-   */ 
-   
 
-    /*void OnTriggerEnter2D(Collider2D other)
-    {
-    	if (other.gameObject.CompareTag("Collectables"))
-                {
-                    scaleChange = new Vector3(
-                    other.gameObject.transform.localScale.x, 
-                    other.gameObject.transform.localScale.y, 
-                    0);
-
-                    other.gameObject.SetActive(false);
-                    
-                    gameObject.transform.localScale += scaleChange;
-                }
-    }
-    */
     Inventory inventory;
     
     void Start()
@@ -71,7 +41,7 @@ public class CollectableBehavior : MonoBehaviour
 			case "Turtle":
 				item = 4;
 				break;
-			case "Glider":
+			case "Bird":
 				item = 5;
 				break;
 			default:
@@ -86,5 +56,21 @@ public class CollectableBehavior : MonoBehaviour
 		Destroy(other.gameObject);
 	
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+    	if (other.gameObject.CompareTag("Collectables"))
+        {
+        	scaleChange = new Vector3(
+            other.gameObject.transform.localScale.x, 
+            other.gameObject.transform.localScale.y, 
+                    0);
+
+                    other.gameObject.SetActive(false);
+                    
+                    gameObject.transform.localScale += scaleChange;
+                }
+    }
+    
    
 }
