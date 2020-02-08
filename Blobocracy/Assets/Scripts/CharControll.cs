@@ -24,6 +24,9 @@ public class CharControll : MonoBehaviour
     [SerializeField, Tooltip("How high yah boy is jumping.")]
     float jumpHeight = 3;
 
+    const float default_jump_height = 3;
+    const float frog_jump_height = 7;
+
     int previous_face;
     bool faceLeft;
     bool faceRight;
@@ -46,9 +49,35 @@ public class CharControll : MonoBehaviour
 	inventory = gameObject.GetComponent<Inventory>();
     }
 
+
+    void SetDefault() {
+        jumpHeight = default_jump_height;
+    }
+    void CheckInventory() {
+        SetDefault();
+        int [] array = inventory.GetInventory();
+        int i = 0;
+        while (i < array.Length) {
+            switch (array[i]) {
+                case 1:
+                    //Dosomething
+                    break;
+                case 2:
+                    //Frog
+                    jumpHeight = frog_jump_height;
+                    break;
+                case 3:
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
+        CheckInventory();
         float moveInput = Input.GetAxis("Horizontal");
         animator.SetFloat("Speed", Mathf.Abs(moveInput));
         if (moveInput > 0) {
