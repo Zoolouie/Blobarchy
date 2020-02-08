@@ -22,10 +22,10 @@ public class CharControll : MonoBehaviour
     float deceleration = 70;
 
     [SerializeField, Tooltip("How high yah boy is jumping.")]
-    float jumpHeight = 3;
+    float jumpHeight = 5;
 
-    const float default_jump_height = 3;
-    const float frog_jump_height = 7;
+    const float default_jump_height = 5;
+    const float frog_jump_height = 10;
 
     int previous_face;
     bool faceLeft;
@@ -55,15 +55,17 @@ public class CharControll : MonoBehaviour
     }
     void CheckInventory() {
         SetDefault();
-        int [] array = inventory.GetInventory();
-        int i = 0;
-        while (i < array.Length) {
+        int[] array = inventory.GetInventory();
+        int i = array.Length - 1;
+        Debug.Log(array[0]);
+        while (i >= 0) {
             switch (array[i]) {
                 case 1:
                     //Dosomething
                     break;
                 case 2:
                     //Frog
+                    Debug.Log("Has Frog");
                     jumpHeight = frog_jump_height;
                     break;
                 case 3:
@@ -71,6 +73,7 @@ public class CharControll : MonoBehaviour
                 default:
                     break;
             }
+            i = i - 1;
         }
     }
 
