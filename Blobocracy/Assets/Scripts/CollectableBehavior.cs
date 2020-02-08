@@ -3,38 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CollectableBehavior : MonoBehaviour
-{
-    // Rigidbody2D rb2d;
-    // Start is called before the first frame update
-   
-    /*
-    void OnCollisionEnter2D(Collision2D collisionInfo)
-    {
-	Debug.Log("Collision initiated: " + gameObject.name + " and " + collisionInfo.collider.name);
-	print("There are " + collisionInfo.contacts.Length + " point(s) of contacts");
-    	print("Their relative velocity is " + collisionInfo.relativeVelocity);
-    }
-
-    void OnCollisionStay2D(Collision2D collisionInfo)
-    {
-	print(gameObject.name + " and " + collisionInfo.collider.name + " are still colliding");
-    }
-   */ 
-   
-
+{   
+    private Vector3 scaleChange;// = new Vector3(2.0f, 2.0f, 0.0f);
     void OnTriggerEnter2D(Collider2D other)
     {
-    	Debug.Log("Collision detected with trigger object " + other.name);
+    	if (other.gameObject.CompareTag("Collectables"))
+                {
+                    scaleChange = new Vector3(
+                    other.gameObject.transform.localScale.x, 
+                    other.gameObject.transform.localScale.y, 
+                    0);
+
+                    other.gameObject.SetActive(false);
+                    
+                    gameObject.transform.localScale += scaleChange;
+                }
     }
 
     void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("Collision still happening");
+        
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("Collision exited");
+        
     }
 	
    
