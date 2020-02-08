@@ -10,13 +10,16 @@ using UnityEngine.UI;
     Attach to character
 */
 
+[RequireComponent(typeof(Image))]
 public class ItemRender : MonoBehaviour
 {
     Inventory inventory;
     GameObject stomachContents;
     bool hasEaten =false;
 
-    Image stomachImage;
+    public SpriteRenderer spriteR;
+
+    //Image stomachImage;
 
     public Sprite FROG, TURTLE, BIRD, COIN, TRASH;
 
@@ -25,9 +28,10 @@ public class ItemRender : MonoBehaviour
     {
         inventory = gameObject.GetComponent<Inventory>();
         stomachContents = (GameObject) Instantiate( GameObject.FindWithTag("Dud") ,
-                             transform.position + new Vector3(0,0,-1),
+                             transform.position + new Vector3(-100,-100,-1),
                              Quaternion.identity);
-        stomachImage = stomachContents.GetComponent<Image>();
+        spriteR = stomachContents.GetComponent<SpriteRenderer>();
+        //stomachImage = stomachContents.GetComponent<Image>();
 
     }
 
@@ -40,38 +44,47 @@ public class ItemRender : MonoBehaviour
             float locationY = (float)(transform.localScale.x)*-0.2F;
             float locationX = (float)(transform.localScale.y)*-0.2F;
 
-
+            
             stomachContents.transform.position = transform.position + new Vector3(locationX,
                                                                                     locationY,
                                                                                     -1);
             
-            stomachContents.transform.Rotate(0.5F, 0.5F, 0.1F );
+            stomachContents.transform.Rotate(0.35F, 0.5F, 0.3F );
         }
     }
 
     public void renderStomach() {
         hasEaten = true;
         int stomachItem = inventory.GetInventory()[0];
+        
+        // if(stomachContents == null) {
+        //     Debug.Log("Bigger Problem");
+        // }
         switch(stomachItem) {
             case 0:
-                stomachImage.enabled = false;
-                stomachImage.sprite = null;
+                //stomachContents.enabled = ;
+                spriteR.sprite  = null;
                 break;
             case 1:
-                stomachImage.sprite = COIN;
+                spriteR.sprite  = COIN;
+                
                 break;
             case 2:
-                stomachImage.sprite = FROG;
+                spriteR.sprite  = FROG;
+                
                 break;
             case 3:
-                stomachImage.sprite = TRASH;
+                spriteR.sprite  = TRASH;
                 break;
             case 4:
-                stomachImage.sprite = TURTLE;
+                spriteR.sprite  = TURTLE;
+                break;
+            case 5:
+                spriteR.sprite = BIRD;
                 break;
             default:
-                stomachImage.enabled = false;
-                stomachImage.sprite = null;
+                //stomachContents.enabled = false;
+                spriteR.sprite = null;
                 break;
         }
         

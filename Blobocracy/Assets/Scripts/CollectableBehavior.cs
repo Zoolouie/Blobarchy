@@ -28,7 +28,7 @@ public class CollectableBehavior : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("Collision still happening");
+        //Debug.Log("Collision still happening");
 
 		// Get item name from object tag:
 		string itemName = other.tag;
