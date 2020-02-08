@@ -31,13 +31,41 @@ public class CollectableBehavior : MonoBehaviour
     
     void Start()
     {
-	inventory = gameObject.GetComponent<Inventory>();
+		inventory = gameObject.GetComponent<Inventory>();
     }
 
     void OnTriggerStay2D(Collider2D other)
     {
         //Debug.Log("Collision still happening");
-	inventory.SetInventory(1); //test object
+	
+		// Get item name from object tag:
+		string itemName = other.tag;
+		// Add corresponding item to inventory:
+		int item = 0;
+	
+		switch(itemName)
+		{
+		    case "Coin":
+				item = 1;
+				break;
+			case "Frog":
+				item = 2;
+				break;
+			case "Trash":
+				item = 3;
+				break;
+			case "Turtle":
+				item = 4;
+				break;
+			case "Glider":
+				item = 5;
+				break;
+			default:
+				Debug.Log("Unknown item");
+				break;		
+		}
+		
+		inventory.SetInventory(item);
 	
     }
     

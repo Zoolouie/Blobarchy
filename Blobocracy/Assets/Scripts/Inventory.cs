@@ -12,30 +12,30 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         inventorySize = 1; //INVENTORY SIZE!!
-	inventory = new int[inventorySize];
-	idx = 0;
+		inventory = new int[inventorySize];
+		idx = 0;
     }
     
     void Update(){
-	//Debug.Log("Inventory: " + inventory[0]);
+		//Debug.Log("Inventory: " + inventory[0]);
     }
 
     public void SetInventory(int item){
-	// Set list at idx to item:	
-	inventory[idx] = item;
-	Debug.Log("Added item " + item);
+		// Set list at idx to item:	
+		inventory[idx] = item;
+		Debug.Log("Added item " + item);
 	
-	// Update idx:
-	// if idx at end, set idx to 0:
-	if (idx >= inventory.Length - 1){
-	    idx = 0;
-	}
-	else{
-	    idx ++;
-	}
+		// Update idx:
+		// if idx at end, set idx to 0:
+		if (idx >= inventory.Length - 1){
+		    idx = 0;
+		}
+		else{
+		    idx ++;
+		}
     }
     
     public int[] GetInventory(){
-	return inventory;
+		return inventory;
     }
 }
