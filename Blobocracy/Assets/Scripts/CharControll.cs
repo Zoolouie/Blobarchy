@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharControll : MonoBehaviour
 {
@@ -14,7 +15,8 @@ public class CharControll : MonoBehaviour
 
     Animator animator;
 
-    
+    public Image image;
+
     [SerializeField, Tooltip("Acceleration while grounded.")]
     float acceleration = 75;
 
@@ -44,9 +46,7 @@ public class CharControll : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         sprite = gameObject.GetComponent<SpriteRenderer>(); 
         animator = gameObject.GetComponent<Animator>();
-
-	//TEST	
-	inventory = gameObject.GetComponent<Inventory>();
+	    inventory = gameObject.GetComponent<Inventory>();
     }
 
 
@@ -67,6 +67,7 @@ public class CharControll : MonoBehaviour
                     //Frog
                     Debug.Log("Has Frog");
                     jumpHeight = frog_jump_height;
+                    image.GetComponent<CurrentAbsorbed>().SetCurrentPowerUp(Consumables.Frog);
                     break;
                 case 3:
                     break;
