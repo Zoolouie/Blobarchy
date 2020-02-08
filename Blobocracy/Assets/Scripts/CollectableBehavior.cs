@@ -22,20 +22,30 @@ public class CollectableBehavior : MonoBehaviour
    */ 
    
 
-    void OnTriggerEnter2D(Collider2D other)
+    /*void OnTriggerEnter2D(Collider2D other)
     {
     	Debug.Log("Collision detected with trigger object " + other.name);
+    }
+    */
+    Inventory inventory;
+    
+    void Start()
+    {
+	inventory = gameObject.GetComponent<Inventory>();
     }
 
     void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("Collision still happening");
+        //Debug.Log("Collision still happening");
+	inventory.SetInventory(1); //test object
+	
     }
-
+    
+    /*
     void OnTriggerExit2D(Collider2D other)
     {
         Debug.Log("Collision exited");
     }
-	
+    */
    
 }

@@ -121,6 +121,38 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &803473450 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1945528178891579169, guid: e072b3c8a672b874aa51c55c6b597a3c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1945528180121780168}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &803473455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803473450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6394f94f0f76115a74f2544dd43052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &803473456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803473450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 720c185dcd9e981f7a15ac581a1738b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventorySize: 0
+  inventory: 
 --- !u!61 &915019768 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 2277217527751706716, guid: 637a2127975e9b4489513689917b9bde,
@@ -150,7 +182,6 @@ GameObject:
   - component: {fileID: 1531440343}
   - component: {fileID: 1531440342}
   - component: {fileID: 1531440344}
-  - component: {fileID: 1531440345}
   m_Layer: 0
   m_Name: Trash_Trash
   m_TagString: Untagged
@@ -248,18 +279,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
---- !u!114 &1531440345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1531440341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a6394f94f0f76115a74f2544dd43052, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1924756694
 PrefabInstance:
   m_ObjectHideFlags: 0

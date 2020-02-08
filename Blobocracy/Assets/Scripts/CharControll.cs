@@ -26,11 +26,17 @@ public class CharControll : MonoBehaviour
     bool faceLeft;
     bool faceRight;
 
+    //TEST
+    Inventory inventory;
+
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         sprite = gameObject.GetComponent<SpriteRenderer>(); 
+
+	//TEST	
+	inventory = gameObject.GetComponent<Inventory>();
     }
 
     // Update is called once per frame
@@ -69,5 +75,6 @@ public class CharControll : MonoBehaviour
             isGrounded = true;
         }
     }
+   
 
 }
