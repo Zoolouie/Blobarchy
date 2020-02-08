@@ -26,9 +26,6 @@ public class CharControll : MonoBehaviour
     [SerializeField, Tooltip("How high yah boy is jumping.")]
     float jumpHeight;
 
-    // [SerializeField, Tooltip("How big yah boy is.")]
-    // Vector3 blobScale;
-
 
     const float default_jump_height = 5;
     const float frog_jump_height = 10;
@@ -57,8 +54,6 @@ public class CharControll : MonoBehaviour
         acceleration = 75;
         deceleration = 70;
         jumpHeight = 5;
-        // blobScale = default_blob_scale;
-
 
         inventory = gameObject.GetComponent<Inventory>();
     }
@@ -66,27 +61,29 @@ public class CharControll : MonoBehaviour
 
     void SetDefault() {
         jumpHeight = default_jump_height;
+        gameObject.transform.localScale = new Vector3(default_blob_scale, default_blob_scale, default_blob_scale);
     }
     void CheckInventory() {
         SetDefault();
         int[] array = inventory.GetInventory();
         int i = array.Length - 1;
-        Debug.Log(array[0]);
+        //Debug.Log(array[0]);
         while (i >= 0) {
             switch (array[i]) {
                 case 1:
                     //Dosomething
-                    Debug.Log("Has Coin");
-                    // blobScale = 3;
-
+                    // Debug.Log("Has Coin");
+                    gameObject.transform.localScale = new Vector3(blob_scale, blob_scale, blob_scale);
                     break;
                 case 2:
                     //Frog
-                    Debug.Log("Has Frog");
+                    // Debug.Log("Has Frog");
                     jumpHeight = frog_jump_height;
                     image.GetComponent<CurrentAbsorbed>().SetCurrentPowerUp(Consumables.Frog);
                     break;
                 case 3:
+                    //Trash - do nothing
+                    // Debug.Log("Has Trash");
                     break;
                 default:
                     break;
@@ -139,7 +136,7 @@ public class CharControll : MonoBehaviour
         }
     }
     void OnCollisionEnter2D(Collision2D collision){
-        Debug.Log(collision.gameObject.name);
+        //Debug.Log(collision.gameObject.name);
         if(collision.gameObject.name == "Floor" && !isJumping)
         {
             animator.SetBool("Jump", false);
