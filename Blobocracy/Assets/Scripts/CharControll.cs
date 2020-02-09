@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /*
 DESCRIPTION:
@@ -15,6 +16,8 @@ public class CharControll : MonoBehaviour
     protected Rigidbody2D body;
     protected SpriteRenderer sprite;
     protected Vector2 velocity;
+
+    const float threshold = -100;
 
     bool isGrounded = true;
 
@@ -126,6 +129,12 @@ public class CharControll : MonoBehaviour
     {
 
         CheckInventory();
+
+        if (transform.position.y < threshold) {
+            Scene scene = SceneManager.GetActiveScene(); 
+            SceneManager.LoadScene(scene.name);
+            return;
+        }
 
         if (body.velocity.y < 0) {
             isFalling = true;
