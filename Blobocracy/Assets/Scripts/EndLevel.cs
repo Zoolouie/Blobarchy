@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneBox : MonoBehaviour
+public class EndLevel : MonoBehaviour
 {
-    void onTriggerEnter2D() {
-        SceneManager.LoadScene("Level 1");
+    void OnTriggerEnter2D() {
+        SceneManager.LoadScene("Level1");
     }
 }

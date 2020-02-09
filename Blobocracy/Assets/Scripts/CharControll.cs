@@ -16,7 +16,7 @@ public class CharControll : MonoBehaviour
     protected SpriteRenderer sprite;
     protected Vector2 velocity;
 
-    bool isGrounded;
+    bool isGrounded = true;
 
     Animator animator;
 
@@ -108,6 +108,7 @@ public class CharControll : MonoBehaviour
                     //Turtle - go slower and make tougher?
                     image.GetComponent<CurrentAbsorbed>().SetCurrentPowerUp(Consumables.Turtle);
                     speed = turtle_speed;
+                    jumpHeight = turtle_jump_height;
                     break;
                 case 5:
                     image.GetComponent<CurrentAbsorbed>().SetCurrentPowerUp(Consumables.Bird);
@@ -177,7 +178,6 @@ public class CharControll : MonoBehaviour
         }
     }
     void OnCollisionEnter2D(Collision2D collision){
-        //Debug.Log(collision.gameObject.name);
         if(collision.gameObject.tag == "Floor" && !isJumping)
         {
             animator.SetBool("Jump", false);

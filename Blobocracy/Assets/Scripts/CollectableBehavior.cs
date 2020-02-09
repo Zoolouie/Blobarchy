@@ -29,7 +29,9 @@ public class CollectableBehavior : MonoBehaviour
     void OnTriggerStay2D(Collider2D other)
     {
         //Debug.Log("Collision still happening");
-
+		if (other.gameObject.tag == "Egg") {
+			return;
+		}
 		// Get item name from object tag:
 		string itemName = other.tag;
 		// Add corresponding item to inventory:

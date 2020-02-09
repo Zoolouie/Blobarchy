@@ -11,6 +11,10 @@ TagManager:
   - Coin
   - Bird
   - Dud
+  - Decor
+  - Walls
+  - Floor
+  - Egg
   layers:
   - Default
   - TransparentFX
