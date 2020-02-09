@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 public class EndLevel : MonoBehaviour
 {
     void OnTriggerEnter2D() {
-        SceneManager.LoadScene("Level1");
+        if (SceneManager.GetActiveScene().name == "Intro"){
+            SceneManager.LoadScene("Level1");
+        }
+        else{
+          SceneManager.LoadScene("Intro");
+        }
     }
 }
